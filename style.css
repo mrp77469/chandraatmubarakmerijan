@@ -1,0 +1,108 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1a0f1f, #0b0613);
+  color: white;
+  overflow: hidden;
+}
+
+/* Glow */
+body::before {
+  content: "";
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  background: #ff2e7a;
+  filter: blur(200px);
+  opacity: 0.25;
+  top: -200px;
+  right: -200px;
+}
+
+/* Slides */
+.slide {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  animation: slideIn 0.8s ease;
+}
+
+.active {
+  display: flex;
+}
+
+/* Animation */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Text */
+h1 {
+  font-size: 2.6rem;
+  color: #ff6fa5;
+  text-shadow: 0 0 15px rgba(255, 46, 122, 0.6);
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  opacity: 0.85;
+}
+
+/* Button */
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff2e7a, #ff6fa5);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 30px rgba(255, 46, 122, 0.5);
+}
+
+/* Hearts */
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff2e7a;
+  transform: rotate(45deg);
+  animation: float 6s linear;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #ff2e7a;
+  border-radius: 50%;
+}
+
+.heart::before { top: -10px; }
+.heart::after { left: -10px; }
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(45deg); opacity: 1; }
+  100% { transform: translateY(-800px) rotate(45deg); opacity: 0; }
+}
